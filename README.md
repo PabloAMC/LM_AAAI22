@@ -9,18 +9,17 @@ This repository contains the data from the article "How General-Purpose Is a Lan
 
 
 
-## To read the data use
+## How to read the data
+Use
 ```
 import json
 import pandas as pd
+
 df = pd.io.json.read_json('./with_GPT3.json')
 df.head()
-```
-or 
 
-```
 df3 = pd.io.json.read_json('./without_GPT3.json')
-df.head()
+df3.head()
 ```
 
 ## Data description
