@@ -10,15 +10,36 @@ This repository contains the data from the article "How General-Purpose Is a Lan
 
 
 ## How to read the data
+The data is encoded using Fernet to prevent using the prompts to train Language Models.
 Use
 ```
 import json
 import pandas as pd
+from cryptography.fernet import Fernet
 
-df = pd.io.json.read_json('./with_GPT3.json')
+key = b'RR3hjInZO_IRyLyeaJWk0Jd1msBpmUVvk0NkFokufRc='
+fernet = Fernet(key)
+
+for file in ['with_GPT3.json','without_GPT3.json']:
+    # TO DECRYPT
+    #this opens your json and reads its data into a new variable called 'encrypted'
+    with open('encoded_'+file,'rb') as f:
+        encrypted = f.read()
+
+    #this decrypts the data read from your json and stores it in 'data'
+    data = fernet.decrypt(encrypted)
+
+    #this writes your new, decrypted data into a new JSON file
+    with open(file,'wb') as f:
+        f.write(data)
+
+    df = pd.io.json.read_json(file)
+    df.head()
+
+df = pd.io.json.read_json('with_GPT3.json')
 df.head()
 
-df3 = pd.io.json.read_json('./without_GPT3.json')
+df3 = pd.io.json.read_json('without_GPT3.json')
 df3.head()
 ```
 
