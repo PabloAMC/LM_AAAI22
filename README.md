@@ -2,7 +2,7 @@
 
   # How General-Purpose Is a Language Model? Usefulness and Safety with Human Prompters in the Wild
 
-  [![Conference](http://img.shields.io/badge/AAAI-2022-4b44ce.svg)](https://aaai.org/Conferences/AAAI-22) 
+  [![Conference](http://img.shields.io/badge/AAAI-2022-4b44ce.svg)](https://ojs.aaai.org/index.php/AAAI/article/download/20466/20225) 
  </div>
 
 This repository contains the supplementary material and data from the article "How General-Purpose Is a Language Model? Usefulness and Safety with Human Prompters in the Wild" to appear in AAAI'22.
